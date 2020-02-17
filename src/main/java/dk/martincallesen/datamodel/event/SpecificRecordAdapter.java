@@ -4,10 +4,10 @@ import org.apache.avro.Schema;
 import org.apache.avro.specific.SpecificRecord;
 import org.apache.avro.specific.SpecificRecordBase;
 
-public class SpecificRecordAdapter<T extends SpecificRecord> extends SpecificRecordBase {
-    private T specificRecord;
+public class SpecificRecordAdapter extends SpecificRecordBase {
+    private SpecificRecord specificRecord;
 
-    public SpecificRecordAdapter(T specificRecord) {
+    public SpecificRecordAdapter(SpecificRecord specificRecord) {
         this.specificRecord = specificRecord;
     }
 
@@ -26,7 +26,7 @@ public class SpecificRecordAdapter<T extends SpecificRecord> extends SpecificRec
         return specificRecord.getSchema();
     }
 
-    public T getRecord(){
+    public Object getRecord(){
         return specificRecord;
     }
 }
